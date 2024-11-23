@@ -12,8 +12,7 @@ app.use(cors())
 
 app.use(require('./routes/auth'))
 app.use(require('./routes/feature'))
-// app.use(require("./routes/addfeature"))
-// app.use(require("./routes/feature"))
+
 app.get("/",(req,res)=>{
     res.send("lorem ipsum")
 })
