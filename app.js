@@ -18,7 +18,8 @@ app.get("/",(req,res)=>{
     res.send("lorem ipsum")
 })
 
-mongoose.connect(process.env.MONGO_URL||'mongodb://localhost:27017/dataVisualization')
+// 'mongodb://localhost:27017/dataVisualization'
+mongoose.connect(process.env.MONGO_URL)
     .then(() => {
         app.listen(port, () => {
             console.log(`http://localhost:${port}`);
