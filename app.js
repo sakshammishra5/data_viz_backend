@@ -4,23 +4,25 @@ const port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 const cors = require('cors')
 require('dotenv').config()
+const cookieParser = require('cookie-parser')
 
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
-app.use(cors())
+app.use(cookieParser())
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+}))
 
 
 app.use(require('./routes/auth'))
 app.use(require('./routes/feature'))
+app.use(require('./routes/filter'))
 
-app.get("/",(req,res)=>{
-    res.send("lorem ipsum")
-})
 
-// 'mongodb://localhost:27017/dataVisualization'
 mongoose.connect(process.env.MONGO_URL)
     .then(() => {
-        app.listen(process.env.PORT||3000, () => {
+        app.listen(port||3000, () => {
             console.log(`http://localhost:${process.env.PORT||3000}`);
         })
     })
