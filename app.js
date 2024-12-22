@@ -9,7 +9,7 @@ const cookieParser = require('cookie-parser')
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 app.use(cookieParser())
-app.use(cors())
+app.use(cors({credentials:true,origin:'https://data-viz-frontend.vercel.app'}))
 
 
 app.use(require('./routes/auth'))
