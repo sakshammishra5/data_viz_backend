@@ -45,7 +45,7 @@ async function getFilteredFeatures(req, res) {
             { name: "E", value: item.feature.E, Gender: item.Gender, Age: item.Age, Day: item.Day },
             { name: "F", value: item.feature.F, Gender: item.Gender, Age: item.Age, Day: item.Day },
         ]).flat().slice(0, 5);
-        console.log(result)
+        // console.log(result)
         return res.status(200).json({ result })
 
     } catch (error) {

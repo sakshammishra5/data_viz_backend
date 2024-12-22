@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 function verifyToken(req, res) {
     try {
         const token = req.header('Authorization').split('Bearer ')[1];
-        console.log(token)
+        // console.log(token)
         if (!token) return res.status(500).json({ error: 'Access denied' });
         const decoded = jwt.verify(token, 'saksham');
         req.userId = decoded.userId;
