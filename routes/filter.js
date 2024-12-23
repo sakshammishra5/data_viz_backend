@@ -4,7 +4,7 @@ const router = express.Router()
 
 router.post("/setFilter", async (req, res) => {
     const { userId, filters } = req.body
-    // console.log("upcoming_filters",filters)
+    console.log("upcoming_filters",filters)
     let filter = await Filter.findOne({ userId })
     if (filter == null) {
         filter = await Filter.create({ userId, filter: { Age: filters.age, Gender: filters.gender, DateRange: filters.dateRange } })
