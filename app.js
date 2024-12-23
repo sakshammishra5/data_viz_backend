@@ -7,7 +7,12 @@ require('dotenv').config()
 const cookieParser = require('cookie-parser')
 
 
-app.use(cors())
+app.use(cors({
+    credentials: true,
+    origin: 'https://data-viz-frontend.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization']
+}))
 
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
